@@ -1,18 +1,18 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    This is a demonstration of Quicksight embedding in a VueJS App, backed by an API layer written in Go and running in AWS Lambda.
+
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    
   }
 }
 </script>
