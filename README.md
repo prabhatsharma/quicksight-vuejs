@@ -1,5 +1,7 @@
 # quicksightapp
 
+A sample VueJS App that demonstrates embedding of a quicksight dashboard.
+
 ## Project setup
 ```
 npm install
