@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/quicksight">Quicksight</router-link>
+    <router-link to="/quicksight">QuickSight</router-link>
   </div>
   <router-view/>
 </template>
