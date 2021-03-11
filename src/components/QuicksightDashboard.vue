@@ -1,15 +1,13 @@
 <template>
-<div>
-  Dashobard
+  <div>
+    Dashobard
 
-  <button @click="showDashboad" >Show dashboard</button>
+    <button @click="showDashboad">Show dashboard</button>
 
-   <div>
+    <div>
       <div id="embeddingContainer" class="embeddedReport"></div>
     </div>
-
-</div>
-  
+  </div>
 </template>
 
 <script>
@@ -18,11 +16,10 @@ import { embedSession } from "amazon-quicksight-embedding-sdk";
 
 export default {
   methods: {
-    showDashboad(){
-      var apiUrl = "https://aw0q3ni97c.execute-api.us-west-2.amazonaws.com/dev"
-      axios.get(apiUrl)
-      .then(res=>{
-        var embedData = this.fixJSON(res.data)
+    showDashboad() {
+      var apiUrl = "https://aw0q3ni97c.execute-api.us-west-2.amazonaws.com/dev";
+      axios.get(apiUrl).then((res) => {
+        var embedData = this.fixJSON(res.data);
 
         var options = {
           url: embedData.EmbedUrl,
@@ -38,11 +35,10 @@ export default {
 
         document.getElementById("embeddingContainer").innerHTML = ""; // clear the div before placing new report in it
         embedSession(options); // Finally embed the report
-
-      })
-
+      });
     },
-    fixJSON: function (unQuotedJSON) { // Change relaxedJson to strict json
+    fixJSON: function (unQuotedJSON) {
+      // Change relaxedJson to strict json
       var fixedJSON = unQuotedJSON
         // Replace ":" with "@colon@" if it's between double-quotes
         .replace(/:\s*"([^"]*)"/g, function (match, p1) {
@@ -56,14 +52,11 @@ export default {
         .replace(/(['"])?([a-z0-9A-Z_]+)(['"])?\s*:/g, '"$2": ')
         // Turn "@colon@" back into ":"
         .replace(/@colon@/g, ":");
-      return JSON.parse(fixedJSON)
+      return JSON.parse(fixedJSON);
     },
-
-  }
-  
-}
+  },
+};
 </script>
 
 <style scoped>
-
 </style>
